@@ -25,7 +25,7 @@ public abstract class TextUserInterface {
      * @throws IsGameOverException
      */
     public static GameBoard initGameBoard() throws IOException, CellIsNotEmptyException, IsGameOverException {
-        GameBoard gameBoard = null;
+        GameBoard gameBoard;
         clearConsole();
         System.out.println("Welcome!");
         System.out.println("1 - Play against a friend");
@@ -49,6 +49,9 @@ public abstract class TextUserInterface {
             case 4:
                 gameBoard = new GameBoard(true);
                 aiMove(gameBoard);
+                break;
+            default:
+                gameBoard = new GameBoard();
                 break;
         }
         return gameBoard;
