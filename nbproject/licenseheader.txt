@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}TicTacToe, a simple game coded to pass the Programming Exam
+${licensePrefix}Jacopo Tediosi, Universita' degli Studi di Milano (UniMI) - SSRI
+<#if licenseLast??>
+${licenseLast}
+</#if>
