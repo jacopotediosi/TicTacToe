@@ -5,10 +5,18 @@
 package tictactoe;
 
 /**
- *
+ * The AI class. It uses the MiniMax algorithm.
  * @author Jacopo Tediosi: https://facebook.com/jacopotediosi
  */
 public abstract class ArtificialIntelligence {
+
+    /**
+     * Used to ask AI what is the best move
+     * @param gameBoard the gameboard you want the AI to analyze
+     * @return a coordinate object containing the best move chosen from the AI
+     * @throws CellIsNotEmptyException
+     * @throws IsGameOverException
+     */
     public static Coordinate getBestMoveCoordinate(GameBoard gameBoard) throws CellIsNotEmptyException, IsGameOverException {  
         return minimax(gameBoard, gameBoard.getActualPlayer());
     }

@@ -9,13 +9,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *
+ * This class contains static methods used to manage the user's text interface
  * @author Jacopo Tediosi: https://facebook.com/jacopotediosi
  */
 public abstract class TextUserInterface {
     private static final InputStreamReader INPUTSTREAM  = new InputStreamReader(System.in);
     private static final BufferedReader BUFFEREDINPUT   = new BufferedReader(INPUTSTREAM);
     
+    /**
+     * Prints menu, asks for the game mode and return a gameboard created with
+     * the user choises
+     * @return the gameboard
+     * @throws IOException
+     * @throws CellIsNotEmptyException
+     * @throws IsGameOverException
+     */
     public static GameBoard initGameBoard() throws IOException, CellIsNotEmptyException, IsGameOverException {
         GameBoard gameBoard = new GameBoard();
         clearConsole();
@@ -46,6 +54,10 @@ public abstract class TextUserInterface {
         return gameBoard;
     }
     
+    /**
+     * Clears the console and prints the gameboard
+     * @param gameBoard the gameboard to print
+     */
     public static void clearConsoleAndPrintGameBoard(GameBoard gameBoard) {
         clearConsole();
         System.out.println(gameBoard);
@@ -55,6 +67,14 @@ public abstract class TextUserInterface {
         System.out.print("\033[H\033[2J");
     }
     
+    /**
+     * Used when the player wants to move. It asks where the user wants to move
+     * and then it calls the AI if necessary.
+     * @param gameBoard the current gameboard
+     * @throws IOException
+     * @throws IsGameOverException
+     * @throws CellIsNotEmptyException
+     */
     public static void move(GameBoard gameBoard) throws IOException, IsGameOverException, CellIsNotEmptyException {
         huMove(gameBoard);
         if(gameBoard.getAgainstAi() && !gameBoard.isGameOver()) {
