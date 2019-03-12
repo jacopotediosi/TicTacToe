@@ -116,9 +116,9 @@ public abstract class TextUserInterface {
                 y = rawCoordinateString.charAt(0)-'a';
                 x = rawCoordinateString.charAt(1)-'1';
                 if (x<0 || x>2)
-                    System.out.println("Error: first char of input should be A, B or C!");
-                else if (y<0 || y>2)
                     System.out.println("Error: second char of input should be 1, 2 or 3!");
+                else if (y<0 || y>2)
+                    System.out.println("Error: first char of input should be A, B or C!");
                 else
                     validated = true;
             }
